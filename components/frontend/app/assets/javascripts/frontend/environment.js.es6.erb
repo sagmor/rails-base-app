@@ -1,0 +1,38 @@
+var ENV = {
+  environment: '<%= Rails.env %>',
+  baseURL: '/',
+  locationType: 'auto',
+  scheme: 'http<%= 's' if Rails.application.secrets.ssl %>://',
+  host: '<%= Rails.application.secrets.host %>',
+  oauthClientID: '<%= Rails.application.secrets.oauth_client_id %>',
+  oauthClientSecret: '<%= Rails.application.secrets.oauth_client_secret %>',
+
+  APP: {
+  },
+
+  analytics: {
+    google: "UA-52313114-1"
+  }
+};
+
+// Development environment
+<% if Rails.env.development? %>
+
+  // Analytics
+  ENV.analytics = {
+  };
+
+  // Enable Logging
+  ENV.APP.LOG_RESOLVER = true;
+  ENV.APP.LOG_ACTIVE_GENERATION = true;
+  ENV.APP.LOG_MODULE_RESOLVER = true;
+  ENV.APP.LOG_TRANSITIONS = true;
+  ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
+  ENV.APP.LOG_VIEW_LOOKUPS = true;
+<% end %>
+
+ENV.apiHost = 'api.'+ENV.host;
+ENV.root = ENV.scheme+ENV.host;
+ENV.apiRoot = ENV.scheme+ENV.apiHost;
+
+export default ENV;

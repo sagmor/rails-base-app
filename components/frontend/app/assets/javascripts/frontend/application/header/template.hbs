@@ -1,0 +1,13 @@
+<a {{action "toggleNavigation" target="view"}} class="toggle-navigation">
+  <i class="fa fa-bars"></i>
+</a>
+
+{{#link-to 'index' class="brand"}}
+Sample App
+{{/link-to}}
+
+{{#if session.isAuthenticated}}
+  {{view 'application/header/session/show'}}
+{{else}}
+  {{view 'application/header/session/new'}}
+{{/if}}

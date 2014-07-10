@@ -1,0 +1,14 @@
+{{ session.account.fullName }}
+<img src="https://graph.facebook.com/sagmor/picture" width="35" height="35">
+
+<ul class="dropdown">
+  <li>
+    {{#link-to 'user' session.account}}Profile{{/link-to}}
+  </li>
+  <li>
+    {{#link-to 'account'}}Account{{/link-to}}
+  </li>
+  <li>
+    <a {{ action 'invalidateSession' }}>Logout</a>
+  </li>
+</ul>

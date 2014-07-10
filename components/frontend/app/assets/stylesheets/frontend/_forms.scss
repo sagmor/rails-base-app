@@ -1,0 +1,32 @@
+.input {
+  @include gridle_parent();
+  margin: 1em;
+
+  label {
+    @include gridle(8);
+  }
+
+  input {
+    @include gridle(8);
+  }
+
+  .error {
+    color: $orange;
+  }
+
+}
+
+input[type='submit'] {
+  background-color: $aqua;
+  color: $white;
+  padding: 0.2em;
+  // float: right;
+  //
+  // &:after {
+  //   content: ".";
+  //   display: block;
+  //   height: 0;
+  //   clear: both;
+  //   visibility: hidden;
+  // }
+}

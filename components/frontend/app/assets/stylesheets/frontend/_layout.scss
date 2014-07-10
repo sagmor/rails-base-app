@@ -1,0 +1,110 @@
+@import "colors";
+
+$headerHeight: 50px;
+
+#application {
+  @include gridle_container ( ); // I'm the container
+  max-width : 960px;
+  margin : 0 auto;
+  transform: translate3d(0, 0, 0);
+  transition: transform 500ms ease;
+}
+
+#header {
+  @include gridle ( 8 );
+  height: $headerHeight;
+  padding: 0.5em;
+  background: rgba($gray, 0.1);
+}
+
+.brand {
+  color: $black;
+  text-decoration: none;
+  font-size: 1.5em;
+  margin: 0.1em;
+}
+
+#content {
+  @include gridle ( 8 );
+  @include gridle ( 6, sm md lg );
+  @include gridle_parent( ); 
+  padding: 0.5em;
+}
+
+form {
+  @include gridle ( 8 );
+  @include gridle_parent( ); 
+}
+
+#sidebar {
+  @include gridle ( 2, sm md lg );
+}
+
+#footer {
+  @include gridle ( 8 );
+}
+
+// Colors
+body {
+}
+
+// Navigation
+@include gridle_state ( xs ) {
+  #application.navigating {
+    transform: translate3d(70%, 0, 0);
+  }
+
+  #sidebar {
+    transform: translate3d(-100%, 0, 0);
+    position: absolute;
+    left: 0;
+    top: $headerHeight;
+    width: 70%;
+  }
+}
+
+#header .toggle-navigation {
+  @include gridle_not_visible ();
+  @include gridle_visible ( xs );
+  color: $black;
+  font-size: 1.5em;
+  margin: 0.5em;
+}
+
+#account-navigation {
+  float: right;
+  display: inline-block;
+  position: relative;
+}
+
+#account-navigation .dropdown {
+  position: absolute;
+top: 100%;
+right: 0;
+z-index: 1000;
+display: none;
+float: left;
+min-width: 160px;
+padding: 5px 0;
+margin: 2px 0 0;
+font-size: 14px;
+text-align: left;
+list-style: none;
+background-color: #fff;
+-webkit-background-clip: padding-box;
+background-clip: padding-box;
+border: 1px solid #ccc;
+border: 1px solid rgba(0,0,0,.15);
+border-radius: 4px;
+-webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+#account-navigation.expanded .dropdown {
+  display: block;
+}
+
+.sheet, form {
+  background: rgba($white, 0.2);
+  border: 2px solid rgba($white, 0.4);
+}

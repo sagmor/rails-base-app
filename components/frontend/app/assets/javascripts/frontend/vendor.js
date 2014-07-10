@@ -1,0 +1,10 @@
+//= require loader
+//= require jquery
+//= require handlebars
+//= require ember
+//= require ember-data
+//= require ember/resolver
+//= require ember/load-initializers
+//= require ember-simple-auth
+//= require ember-validations
+//= require ember-easyForm

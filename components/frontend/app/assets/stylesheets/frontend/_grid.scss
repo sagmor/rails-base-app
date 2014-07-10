@@ -1,0 +1,14 @@
+// import gridle
+@import "gridle/gridle";
+
+// setting up the grid
+$gridle-columns-count : 8;
+$gridle-gutter-width : 20px;
+$gridle-debug : true;
+
+// @include gridle_register_default_mobile_first_states()
+@include gridle_register_state("xs", null, 768px);
+@include gridle_register_state("sm", 768px, 992px);
+@include gridle_register_state("md", 992px, 1200px);
+@include gridle_register_state("lg", 1200px, null);
+
